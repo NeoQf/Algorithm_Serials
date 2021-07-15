@@ -1,4 +1,4 @@
-package LinearSearch;
+package _01_LinearSearch;
 
 public class Student {
 
