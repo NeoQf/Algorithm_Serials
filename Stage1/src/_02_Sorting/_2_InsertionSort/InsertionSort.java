@@ -3,12 +3,30 @@ package _02_Sorting._2_InsertionSort;
 import _01_LinearSearch.ArrayGenerator;
 import _02_Sorting._1_SelectionSort.SortingHelper;
 
+import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 
 public class InsertionSort {
 
     private InsertionSort(){}
+
+    /*优化的代码
+    * 省略了swap函数
+    * */
     public static <E extends Comparable<E>> void sort(E[] arr) {
+        int arrLen = arr.length;
+        for (int i = 0; i < arrLen; i++) {
+            E t = arr[i];
+            int j;
+            for (j = i; j > 0 && t.compareTo(arr[j - 1]) < 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[j] = t;
+        }
+    }
+
+    /*这是未优化的代码*/
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
         int arrLen = arr.length;
 
         for (int i = 0; i < arrLen; i++) {
@@ -23,18 +41,6 @@ public class InsertionSort {
         }
     }
 
-    public static <E extends Comparable<E>> void sort2(E[] arr) {
-        int arrLen = arr.length;
-        for (int i = 0; i < arrLen; i++) {
-            E t = arr[i];
-            int j;
-            for (j = i; j > 0 && t.compareTo(arr[j - 1]) < 0; j--) {
-                arr[j] = arr[j - 1];
-            }
-            arr[j] = t;
-        }
-
-    }
     private static <E> void swap(E[] arr, int i, int j) {
         E t = arr[i];
         arr[i] = arr[j];
@@ -45,12 +51,22 @@ public class InsertionSort {
 
         int[] dataSize = {10000, 100000};
         for (int n : dataSize) {
+            System.out.println("Random Array : ");
             Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
             Integer[] arr2 = Arrays.copyOf(arr, arr.length);
 
             SortingHelper.sortTest("InsertionSort", arr);
-            SortingHelper.sortTest("InsertionSort2", arr2);
+            SortingHelper.sortTest("SelectionSort", arr2);
+
+            System.out.println();
+
+            System.out.println("Ordered Array : ");
+            arr = ArrayGenerator.generateOrderedArray(n);
+            arr2 = Arrays.copyOf(arr, arr.length);
+
+            SortingHelper.sortTest("InsertionSort", arr);
+            SortingHelper.sortTest("SelectionSort", arr2);
+            System.out.println();
         }
     }
-
 }
