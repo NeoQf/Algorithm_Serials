@@ -1,4 +1,4 @@
-package Array;
+package Stack;
 
 public class Array<E> {
     /**
