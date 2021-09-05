@@ -1,4 +1,4 @@
-package Stack;
+package _04_Stack;
 
 public class Main {
     public static void main(String[] args) {

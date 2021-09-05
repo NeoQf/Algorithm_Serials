@@ -1,4 +1,4 @@
-package Queue;
+package _05_Queue;
 
 public class LoopQueue<E> implements Queue<E> {
 

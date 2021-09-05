@@ -1,4 +1,4 @@
-package Stack;
+package _04_Stack;
 import java.util.Stack;
 
 class Solution {

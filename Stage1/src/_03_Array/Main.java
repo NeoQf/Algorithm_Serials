@@ -1,4 +1,4 @@
-package Array;
+package _03_Array;
 
 public class Main {
 

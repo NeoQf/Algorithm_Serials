@@ -1,4 +1,4 @@
-package Queue;
+package _05_Queue;
 
 import java.util.Random;
 

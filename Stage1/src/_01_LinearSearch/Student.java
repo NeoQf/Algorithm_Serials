@@ -1,6 +1,6 @@
 package _01_LinearSearch;
 
-import Array.Array;
+import _03_Array.Array;
 
 public class Student implements Comparable<Student> {
 

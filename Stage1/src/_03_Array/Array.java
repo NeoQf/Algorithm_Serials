@@ -1,4 +1,4 @@
-package Queue;
+package _03_Array;
 
 public class Array<E> {
     /**
