@@ -24,14 +24,18 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
     public static void main(String[] args) {
-        int opCount = 1000000;
+        int opCount = 100000000;
 
-        ArrayQueue<Integer> arrayQueue = new ArrayQueue<Integer>();
-        double time1 = testQueue(arrayQueue, opCount);
-        System.out.println("ArrayQueue, time: " + time1 + " s");
+        //ArrayQueue<Integer> arrayQueue = new ArrayQueue<Integer>();
+        //double time1 = testQueue(arrayQueue, opCount);
+        //System.out.println("ArrayQueue, time: " + time1 + " s");
 
         LoopQueue<Integer> loopQueue = new LoopQueue<Integer>();
         double time2 = testQueue(loopQueue, opCount);
-        System.out.println("ArrayQueue, time: " + time2 + " s");
+        System.out.println("LoopQueue, time: " + time2 + " s");
+
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        double time3 = testQueue(loopQueue, opCount);
+        System.out.println("linkedListQueue, time: " + time3 + " s");
     }
 }

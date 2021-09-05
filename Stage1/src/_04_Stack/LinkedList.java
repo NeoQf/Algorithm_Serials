@@ -1,4 +1,4 @@
-package _06_LinkedList;
+package _04_Stack;
 
 public class LinkedList<E> {
 
@@ -59,7 +59,7 @@ public class LinkedList<E> {
      * @param e
      */
     public void add(int index, E e) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("Adding failed. Illegal index.");
         }
 
@@ -110,12 +110,7 @@ public class LinkedList<E> {
 
     /**
      * 获得链表的第index（0-based）个位置的元素
-     * 在链表中不是一个常用的操作，练习用
-     *
-     * 这里设置cur而不是prev，是因为——
-     * add方法是需要遍历到index前一个位置，进行插入；
-     * 而get方法恰好是遍历到index的位置，进行查找；
-     * 所以设置cur，而非prev
+     * 在链表中不是一个常用的操作，练习用：）
      * @param index
      * @return
      */
