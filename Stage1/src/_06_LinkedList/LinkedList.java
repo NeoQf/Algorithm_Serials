@@ -59,18 +59,19 @@ public class LinkedList<E> {
      * @param e
      */
     public void add(int index, E e) {
-        if (index < 0 || index > size) {
-            throw new IllegalArgumentException("Add failed. Illegal index.");
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Adding failed. Illegal index.");
         }
 
-        Node pre = dummyHead;
+        Node prev = dummyHead;
         for (int i = 0; i < index; i++) {
-            pre = pre.next; // pre变量往后移动
+            prev = prev.next;
         }
-        // Node node = new Node(e);
-        // node.next = pre.next;
-        // pre.next = node;
-        pre.next = new Node(e, pre.next);
+
+//        Node node = new Node(e);
+//        node.next = prev.next;
+//        prev.next = node;
+        prev.next = new Node(e, prev.next);
         size++;
     }
 
@@ -115,7 +116,7 @@ public class LinkedList<E> {
      */
     public E get(int index) {
         if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("Get failed. Illegal index.");
+            throw new IllegalArgumentException("Get failed. Index illegal.");
         }
 
         Node cur = dummyHead.next;
@@ -173,6 +174,43 @@ public class LinkedList<E> {
         return false;
     }
 
+    /**
+     * 从链表中删除index（0-based）位置的元素，返回删除的元素；
+     * 在链表中不是一个常用的操作，练习用
+     * @param index
+     * @return
+     */
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Remove failed. Illegal index.");
+        }
+        Node prev = dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+        Node retNode = prev.next;
+        prev.next = retNode.next;
+        retNode.next = null;
+        size--;
+
+        return retNode.e;
+    }
+
+    /**
+     * 从链表中删除第一个元素，返回删除的元素
+     * @return
+     */
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    /**
+     * 从链表中删除第一个元素，返回删除的元素
+     * @return
+     */
+    public E removeLast() {
+        return remove(size - 1);
+    }
 
     @Override
     public String toString() {
