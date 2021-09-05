@@ -1,5 +1,12 @@
 package _06_LinkedList;
 
+/**
+ * 1、区分何时用prev，何时用cur：
+ *      ——增删，prev：Node prev = dummyHead;
+ *      ——改查，cur：Node cur = dummyHead.next;
+ * 2、
+ * @param <E>
+ */
 public class LinkedList<E> {
 
     /**
