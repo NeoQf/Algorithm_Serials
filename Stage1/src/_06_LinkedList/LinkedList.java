@@ -2,8 +2,8 @@ package _06_LinkedList;
 
 /**
  * 1、区分何时用prev，何时用cur：
- *      ——增删，prev：Node prev = dummyHead;
- *      ——改查，cur：Node cur = dummyHead.next;
+ *      ——增删（add、remove），prev：Node prev = dummyHead;
+ *      ——改查（set、get），cur：Node cur = dummyHead.next;
  * 2、
  * @param <E>
  */
@@ -120,9 +120,14 @@ public class LinkedList<E> {
      * 在链表中不是一个常用的操作，练习用
      *
      * 这里设置cur而不是prev，是因为——
-     * add方法是需要遍历到index前一个位置，进行插入；
-     * 而get方法恰好是遍历到index的位置，进行查找；
-     * 所以设置cur，而非prev
+     * 1、add方法是需要遍历到index前一个位置，进行插入：
+     *      ——是从索引为0前的那一个元素开始，所以设置为Node prev = dummyHead;
+     *
+     *
+     * 2、而get方法恰好是遍历到index的位置，进行查找：
+     *      ——是从索引为0的那一个元素开始，所以设置为Node cur = dummyHead.next;
+     *
+     * 所以此处设置cur，而非prev。
      * @param index
      * @return
      */
