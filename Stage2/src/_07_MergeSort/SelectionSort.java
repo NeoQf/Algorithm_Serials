@@ -1,5 +1,7 @@
 package _07_MergeSort;
 
+import java.util.Scanner;
+
 public class SelectionSort {
     private SelectionSort() {}
 
@@ -25,5 +27,7 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
     }
 }
