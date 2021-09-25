@@ -1,5 +1,6 @@
 package _08_QuickSort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import static _08_QuickSort.Solution1.swap;
@@ -12,17 +13,13 @@ public class Solution3 {
         quickSort3(arr, 0, arr.length - 1, rnd);
     }
 
+
+
     public static void quickSort3(int[] arr, int L, int R, Random rnd) {
         if (L >= R) {
             return;
         }
 
-        int p = partition3(arr, L, R, rnd);
-        quickSort3(arr, L, p - 1, rnd);
-        quickSort3(arr, p + 1, R, rnd);
-    }
-
-    public static int partition3(int[] arr, int L, int R, Random rnd) {
         int p = L + rnd.nextInt(R - L + 1);
         swap(arr, L, p);
 
@@ -43,8 +40,17 @@ public class Solution3 {
             } else {
                 i++;
             }
-            swap(arr, L, Lt);
         }
-        return Lt;
+        swap(arr, L, Lt);
+
+        quickSort3(arr, L, Lt - 1, rnd);
+        quickSort3(arr, gt, R, rnd);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {4, 6, 2, 2, 3, 8, 7, 1};
+        quickSort3(arr);
+
+        System.out.println(Arrays.toString(arr));
     }
 }
