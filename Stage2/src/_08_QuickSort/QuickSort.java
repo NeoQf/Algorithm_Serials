@@ -95,17 +95,15 @@ public class QuickSort {
         // arr[l + 1, lt] < v, arr[lt + 1, i - 1] == v, arr[gt, r] > v
         int lt = l, i = l + 1, gt = r + 1;
         while (i < gt) {
-            while (i < gt) {
-                if (arr[i].compareTo(arr[l]) < 0) {
-                    lt++;
-                    swap(arr, i, lt);
-                    i++;
-                } else if (arr[i].compareTo(arr[l]) > 0) {
-                    gt--;
-                    swap(arr, i, gt);
-                } else { // arr[i] == arr[l]
-                    i++;
-                }
+            if (arr[i].compareTo(arr[l]) < 0) {
+                lt++;
+                swap(arr, i, lt);
+                i++;
+            } else if (arr[i].compareTo(arr[l]) > 0) {
+                gt--;
+                swap(arr, i, gt);
+            } else { // arr[i] == arr[l]
+                i++;
             }
         }
         swap(arr, l, lt);
