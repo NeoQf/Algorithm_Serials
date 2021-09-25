@@ -16,7 +16,7 @@ public class QuickSort {
         }
         int p = partition(arr, l, r, rnd);
         sort(arr, l, p - 1, rnd);
-        sort(arr, p - 1, r, rnd);
+        sort(arr, p + 1, r, rnd);
     }
 
     private static <E extends Comparable<E>> int partition(E[] arr, int l, int r, Random rnd) {
@@ -48,7 +48,7 @@ public class QuickSort {
         }
         int p = partition2(arr, l, r, rnd);
         sort2ways(arr, l, p - 1, rnd);
-        sort2ways(arr, p - 1, r, rnd);
+        sort2ways(arr, p + 1, r, rnd);
     }
 
     private static <E extends Comparable<E>> int partition2(E[] arr, int l, int r, Random rnd) {
@@ -109,8 +109,8 @@ public class QuickSort {
             }
         }
         swap(arr, l, lt);
-        // arr[l, lt - 1] < v, arr[lt, gt - 1] == v, arr[gt, r] > v
 
+        // arr[l, lt - 1] < v, arr[lt, gt - 1] == v, arr[gt, r] > v
         sort3ways(arr, l, lt - 1, rnd);
         sort3ways(arr, gt, r, rnd);
     }
