@@ -5,12 +5,12 @@ import java.util.Random;
 
 import static _08_QuickSort.Solution1.swap;
 
-public class Solution3 {
-    private Solution3() {}
+public class Solution3_1 {
+    private Solution3_1() {}
 
-    public static void quickSort3(int[] arr) {
+    public static void quickSort3_1(int[] arr) {
         Random rnd = new Random();
-        quickSort3(arr, 0, arr.length - 1, rnd);
+        quickSort3_1(arr, 0, arr.length - 1, rnd);
     }
 
     /**
@@ -31,11 +31,19 @@ public class Solution3 {
      * @param R
      * @param rnd
      */
-    public static void quickSort3(int[] arr, int L, int R, Random rnd) {
+    public static void quickSort3_1(int[] arr, int L, int R, Random rnd) {
         if (L >= R) {
             return;
         }
 
+        int[] p = partition3_1(arr, L, R, rnd);
+        int Lt = p[0];
+        int gt = p[1];
+        quickSort3_1(arr, L, Lt, rnd);
+        quickSort3_1(arr, gt, R, rnd);
+    }
+
+    public static int[] partition3_1(int[] arr, int L, int R, Random rnd) {
         int p = L + rnd.nextInt(R - L + 1);
         swap(arr, L, p);
 
@@ -59,14 +67,14 @@ public class Solution3 {
         }
         swap(arr, L, Lt);
 
-        quickSort3(arr, L, Lt - 1, rnd);
-        quickSort3(arr, gt, R, rnd);
+        return new int[]{Lt, gt};
     }
 
     public static void main(String[] args) {
         int[] arr = {4, 6, 2, 2, 3, 8, 7, 1};
-        quickSort3(arr);
+        quickSort3_1(arr);
 
         System.out.println(Arrays.toString(arr));
     }
 }
+
